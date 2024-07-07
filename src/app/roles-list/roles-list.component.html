@@ -1,0 +1,27 @@
+<div class="roles-container">
+    <h2>Roles</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>    
+          <th>Accion</th>    
+          <th>ELIMINAR</th>    
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rol of roles">
+          <td>{{ rol.roleID }}</td>
+          <td>{{ rol.roleName }}</td>
+          <td>{{ rol.roleDescription }}</td>      
+          <td><button (click)="ejecutarAccionEnPadre(rol.roleID)">Editar</button></td>   
+          <td><button (click)="eliminarAccionEnPadre(rol.roleID)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: right; margin-top: 10px;">
+        <button  (click)="ejecutarAccionEnPadre(0)">Nuevo</button>
+      </div>
+  </div>
+    

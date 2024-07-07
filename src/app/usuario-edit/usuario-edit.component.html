@@ -1,0 +1,28 @@
+<div class="usuario-edit-container">
+    <div *ngIf="usuario" class="usuario-edit-form">
+      <h2 class="form-title">Editar Usuario</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Nombre de Usuario:</label>
+          <input type="text" id="username" name="username" [(ngModel)]="usuario.username" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" [(ngModel)]="usuario.passwordHash" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="employeeID">ID de Empleado:</label>
+          <input type="number" id="employeeID" name="employeeID" [(ngModel)]="usuario.employeeID" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="roleID">ID de Rol:</label>
+          <input type="number" id="roleID" name="roleID" [(ngModel)]="usuario.roleID" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </form>
+    </div>
+    
+    <div *ngIf="!usuario" class="loading-message">
+      <p>Cargando información del usuario...</p>
+    </div>
+  </div>

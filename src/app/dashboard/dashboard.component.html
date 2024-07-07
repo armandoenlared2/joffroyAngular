@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>ADMINISTRACION DE EMPLEADOS</h1>
+    
+    <div class="button-container">
+        <button (click)="mostrarContenido('empleados')">EMPLEADOS</button>
+        <button *ngIf="rolesVisible" (click)="mostrarContenido('roles')">ROLES</button>
+        <button *ngIf="usuariosVisible" (click)="mostrarContenido('usuarios')">USUARIOS</button>
+        <button (click)="salir()">SALIR</button>
+    </div>
+    
+    <div class="content-area">
+        <app-employee-list *ngIf="contenidoActual === 'empleados'" 
+        [EsAdmin]=EsAdmin
+        (accionHijo)="manejarAccionHijo($event,'employee')"      
+        ></app-employee-list>
+
+        <app-roles-list *ngIf="contenidoActual === 'roles'" 
+        (accionHijo)="manejarAccionHijo($event,'rol')"        
+        ></app-roles-list>
+
+        <app-usuarios-list *ngIf="contenidoActual === 'usuarios'" 
+        (accionHijo)="manejarAccionHijo($event,'usuario')"></app-usuarios-list>
+
+
+
+        <app-employee-edit *ngIf="contenidoActual === 'employee-edit'"
+        (accionHijo)="manejarAccionHijo($event,'empleados')" 
+        [employeeID] = localID></app-employee-edit> 
+
+        <app-usuario-edit *ngIf="contenidoActual === 'usuario-edit'"
+        (accionHijo)="manejarAccionHijo($event,'usuarios')"  
+        [usuarioID] = localID></app-usuario-edit> 
+
+        <app-rol-edit *ngIf="contenidoActual === 'rol-edit'"
+        (accionHijo)="manejarAccionHijo($event,'roles')"       
+        [rolID] = localID></app-rol-edit> 
+
+      </div>
+  </div>

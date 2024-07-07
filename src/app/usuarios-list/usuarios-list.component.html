@@ -1,0 +1,30 @@
+<div class="usuarios-container">
+    <h2>Usuarios</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>USER NAME</th>
+          <th>PASSWORD</th>        
+          <th>EMPLOYEE ID</th>        
+          <th>ROLE ID</th>     
+          <th>Accion</th>   
+          <th>ELIMINAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.userID }}</td>
+          <td>{{ usuario.username }}</td>
+          <td>{{ usuario.passwordHash }}</td>         
+          <td>{{ usuario.employeeID }}</td>   
+          <td>{{ usuario.roleID }}</td>   
+          <td><button (click)="ejecutarAccionEnPadre(usuario.userID)">Editar</button></td>
+          <td><button (click)="eliminarAccionEnPadre(usuario.userID)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: right; margin-top: 10px;">
+      <button  (click)="ejecutarAccionEnPadre(0)">Nuevo</button>
+    </div>
+  </div>

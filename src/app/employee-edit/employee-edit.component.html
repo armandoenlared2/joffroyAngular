@@ -1,0 +1,43 @@
+<div class="employee-edit-container">
+    <div *ngIf="employee" class="employee-edit-form">
+      <h2 class="form-title">Editar Empleado</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">Nombre:</label>
+          <input type="text" id="firstName" name="firstName" [(ngModel)]="employee.firstName" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido:</label>
+          <input type="text" id="lastName" name="lastName" [(ngModel)]="employee.lastName" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" [(ngModel)]="employee.email" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Número de Teléfono:</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="employee.phoneNumber" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="hireDate">Fecha de Contratación:</label>
+          <input type="date" id="hireDate" name="hireDate" 
+          [ngModel]="employee.hireDate | date:'yyyy-MM-dd'" 
+          (ngModelChange)="employee.hireDate = $event"
+          required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="jobTitle">Puesto:</label>
+          <input type="text" id="jobTitle" name="jobTitle" [(ngModel)]="employee.jobTitle" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="department">Departamento:</label>
+          <input type="text" id="department" name="department" [(ngModel)]="employee.department" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </form>
+    </div>
+    
+    <div *ngIf="!employee" class="loading-message">
+      <p>Cargando información del empleado...</p>
+    </div>
+  </div>
